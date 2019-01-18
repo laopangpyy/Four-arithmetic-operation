@@ -1,4 +1,4 @@
-﻿namespace CalculatorGame
+namespace CalculatorGame
 {
     partial class OperationGame
     {
@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OperationGame));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ansText = new System.Windows.Forms.TextBox();
             this.timerText = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.scoreText = new System.Windows.Forms.Label();
-            this.hp = new System.Windows.Forms.Label();
             this.history = new System.Windows.Forms.Button();
             this.re = new System.Windows.Forms.Label();
             this.record = new System.Windows.Forms.Label();
@@ -58,29 +55,27 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.scoreText = new System.Windows.Forms.Label();
+            this.hp = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("STXihei", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(236, 33);
+            this.label1.Location = new System.Drawing.Point(104, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 41);
+            this.label1.Size = new System.Drawing.Size(318, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "四则运算游戏";
+            this.label1.Text = "        四则运算游戏";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("SimSun", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(264, 349);
+            this.button1.Location = new System.Drawing.Point(208, 349);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 38);
@@ -93,7 +88,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("SimHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(399, 205);
+            this.button2.Location = new System.Drawing.Point(405, 225);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 33);
@@ -106,7 +101,7 @@
             // ansText
             // 
             this.ansText.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ansText.Location = new System.Drawing.Point(140, 218);
+            this.ansText.Location = new System.Drawing.Point(77, 231);
             this.ansText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ansText.Name = "ansText";
             this.ansText.Size = new System.Drawing.Size(165, 34);
@@ -117,7 +112,7 @@
             // 
             this.timerText.AutoSize = true;
             this.timerText.Font = new System.Drawing.Font("SimHei", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.timerText.Location = new System.Drawing.Point(135, 152);
+            this.timerText.Location = new System.Drawing.Point(77, 152);
             this.timerText.Name = "timerText";
             this.timerText.Size = new System.Drawing.Size(0, 24);
             this.timerText.TabIndex = 4;
@@ -128,29 +123,10 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // scoreText
-            // 
-            this.scoreText.AutoSize = true;
-            this.scoreText.Font = new System.Drawing.Font("SimHei", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.scoreText.Location = new System.Drawing.Point(92, 74);
-            this.scoreText.Name = "scoreText";
-            this.scoreText.Size = new System.Drawing.Size(0, 24);
-            this.scoreText.TabIndex = 5;
-            // 
-            // hp
-            // 
-            this.hp.AutoSize = true;
-            this.hp.Font = new System.Drawing.Font("SimHei", 14F);
-            this.hp.Location = new System.Drawing.Point(245, 74);
-            this.hp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.hp.Name = "hp";
-            this.hp.Size = new System.Drawing.Size(0, 24);
-            this.hp.TabIndex = 6;
-            // 
             // history
             // 
             this.history.Font = new System.Drawing.Font("SimHei", 14F);
-            this.history.Location = new System.Drawing.Point(399, 292);
+            this.history.Location = new System.Drawing.Point(405, 287);
             this.history.Margin = new System.Windows.Forms.Padding(4);
             this.history.Name = "history";
             this.history.Size = new System.Drawing.Size(119, 36);
@@ -164,7 +140,7 @@
             // 
             this.re.AutoSize = true;
             this.re.Font = new System.Drawing.Font("SimHei", 14F);
-            this.re.Location = new System.Drawing.Point(16, 11);
+            this.re.Location = new System.Drawing.Point(13, 11);
             this.re.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.re.Name = "re";
             this.re.Size = new System.Drawing.Size(118, 24);
@@ -187,7 +163,7 @@
             // reto
             // 
             this.reto.Font = new System.Drawing.Font("SimHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.reto.Location = new System.Drawing.Point(408, 292);
+            this.reto.Location = new System.Drawing.Point(405, 290);
             this.reto.Margin = new System.Windows.Forms.Padding(4);
             this.reto.Name = "reto";
             this.reto.Size = new System.Drawing.Size(110, 32);
@@ -209,10 +185,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SimSun", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(258, 17);
+            this.label2.Font = new System.Drawing.Font("STXihei", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(191, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 38);
+            this.label2.Size = new System.Drawing.Size(213, 41);
             this.label2.TabIndex = 11;
             this.label2.Text = "游戏前设置";
             this.label2.Visible = false;
@@ -220,7 +196,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("SimSun", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(278, 349);
+            this.button3.Location = new System.Drawing.Point(239, 349);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 43);
@@ -309,13 +285,14 @@
             this.groupBox1.Controls.Add(this.questionnum);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(230, 70);
+            this.groupBox1.Location = new System.Drawing.Point(167, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(267, 274);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
             this.groupBox1.Visible = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // panel2
             // 
@@ -366,45 +343,45 @@
             this.panel1.Size = new System.Drawing.Size(64, 52);
             this.panel1.TabIndex = 22;
             // 
-            // pictureBox1
+            // scoreText
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(306, 247);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.scoreText.AutoSize = true;
+            this.scoreText.Font = new System.Drawing.Font("SimHei", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.scoreText.Location = new System.Drawing.Point(405, 90);
+            this.scoreText.Name = "scoreText";
+            this.scoreText.Size = new System.Drawing.Size(0, 24);
+            this.scoreText.TabIndex = 5;
             // 
-            // panel3
+            // hp
             // 
-            this.panel3.Controls.Add(this.hp);
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.scoreText);
-            this.panel3.Location = new System.Drawing.Point(209, 50);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(336, 254);
-            this.panel3.TabIndex = 23;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.hp.AutoSize = true;
+            this.hp.Font = new System.Drawing.Font("SimHei", 14F);
+            this.hp.Location = new System.Drawing.Point(405, 140);
+            this.hp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.hp.Name = "hp";
+            this.hp.Size = new System.Drawing.Size(0, 24);
+            this.hp.TabIndex = 6;
             // 
             // OperationGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(730, 403);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button3);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(567, 398);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.reto);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.record);
             this.Controls.Add(this.re);
             this.Controls.Add(this.history);
-            this.Controls.Add(this.timerText);
             this.Controls.Add(this.ansText);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.timerText);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.hp);
+            this.Controls.Add(this.scoreText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OperationGame";
@@ -414,9 +391,6 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,8 +404,6 @@
         private System.Windows.Forms.TextBox ansText;
         private System.Windows.Forms.Label timerText;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label scoreText;
-        private System.Windows.Forms.Label hp;
         private System.Windows.Forms.Button history;
         private System.Windows.Forms.Label re;
         private System.Windows.Forms.Label record;
@@ -452,7 +424,7 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label scoreText;
+        private System.Windows.Forms.Label hp;
     }
 }
