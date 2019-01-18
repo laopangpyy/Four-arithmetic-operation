@@ -135,7 +135,6 @@ namespace CalculatorGame
                     timerText.Visible = true;
                     history.Visible = true;
                     groupBox1.Visible = false;
-              //      button4.Visible = false;
                     scoreText.Text = "得分：" + score.ToString();
                     hp.Text = "剩余次数" + chance.ToString();
                     timer1.Start();
@@ -144,9 +143,6 @@ namespace CalculatorGame
                 if (onequestion >= qn)
                 {
                     history_Click(null, null);
-                    //MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
-                    //System.Environment.Exit(0);
-                    //Application.Exit();
                 }
                 else
                 {
@@ -195,10 +191,24 @@ namespace CalculatorGame
                 chance=chance-1;
                 if (chance <= 0)
                 {
-                    MessageBox.Show("错误次数过多！");
+                    re.Visible = true;
+                    record.Visible = true;
+                    ansText.Visible = false;
+                    button2.Visible = false;
+                    timerText.Visible = false;
+                    scoreText.Visible = false;
+                    hp.Visible = false;
+                    history.Visible = false;
+                    label1.Visible = false;
+                    timer1.Stop();
+                    reto.Visible = false;
+
+                    MessageBox.Show("很遗憾，您的错误次数过多\n请点击确定查看您的答题情况");
+                    MessageBox.Show("您一共答对" + score + "道题，答错10道题\n请继续加油喔");
+
                     Application.Exit();
                 }
-                hp.Text = "剩余次数" + chance.ToString();
+                hp.Text = "剩余机会：" + chance.ToString();
                
                 this.ansText.Text = "";
                 totalTime = 20;
@@ -214,11 +224,6 @@ namespace CalculatorGame
 
             record.Text += StrList[onequestion] +"="+ correctAnswerStr + "\r\n";
             onequestion++;//题目加1
-            //if (onequestion >= qn)
-            //{
-            //    MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
-            //    Application.Exit();
-            //}
             button1_Click(null, null);
         }
         
@@ -234,12 +239,6 @@ namespace CalculatorGame
                 chance -= 1;
                 hp.Text = "剩余次数" + chance.ToString();
                 onequestion++;
-                //if (onequestion >= qn)
-                //{
-                //    MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
-                //    //System.Environment.Exit(0);
-                //    Application.Exit();
-                //}
                 button1_Click(null, null);
                 totalTime = 20;
             }
@@ -263,10 +262,10 @@ namespace CalculatorGame
             timer1.Stop();
             if (onequestion >= qn)
             {
+                int tempp = 10 - chance;
                 reto.Visible = false;
-                //history_Click(null, null);
-                MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
-                //System.Environment.Exit(0);
+                MessageBox.Show("恭喜您完成您设置生成的所有题\n请点击确定查看您的答题情况");
+                MessageBox.Show("您一共答对" + score + "道题，答错" +tempp+ "道题\n请继续加油喔");
                 Application.Exit();
 
             }
@@ -289,7 +288,6 @@ namespace CalculatorGame
             timerText.Visible = true;
             scoreText.Visible = true;
             hp.Visible = true;
-            //button4.Visible = false;
             history.Visible = true;
             label1.Visible = true;
             timer1.Start();
@@ -312,7 +310,6 @@ namespace CalculatorGame
             label1.Visible = false;
             button3.Visible = false;
             groupBox1.Visible = true;
-            //button4.Visible = false;
 
         }
 
@@ -354,7 +351,6 @@ namespace CalculatorGame
 
         private void button4_Click(object sender, EventArgs e)
         {
-           // panel3.Visible = true;
 
         }
 
