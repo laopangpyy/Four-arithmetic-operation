@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +25,7 @@ namespace CalculatorGame
         int totalTime = 20;
         int modemode = 0;
         int onequestion = 0;
+        int qn, mn;
         int selectpow = 0;//1为** 2为^
         private int chance=10;
         List<BinaryTree> TreeList = new List<BinaryTree>();
@@ -38,17 +39,25 @@ namespace CalculatorGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //int[] a = new int[] { 1, 101, 2, 102, 3 };
-            //FileStream file = new FileStream(@"1.txt", FileMode.Open);
-            //calculate.GetAns(operation: a, length: 4).Print();
+            
+
+            bool a = int.TryParse(this.questionnum.Text, out qn);
+            bool b = int.TryParse(this.textBox1.Text, out mn);
+
+
 
 
             if (modemode == 0)
                 MessageBox.Show("请选择是否进行乘方运算");
-            else if (modemode==3 && selectpow == 0)
+            else if (modemode == 3 && selectpow == 0)
                 MessageBox.Show("请选择乘方符号");
+            else if (a == false)
+                MessageBox.Show("请输入正确格式的题目个数");
+            else if (b == false)
+                MessageBox.Show("请输入正确格式的数字范围");
             else
             {
+               
                 if (createquestion == 1)
                 {
 
@@ -58,16 +67,17 @@ namespace CalculatorGame
                     int count = 0;
                     while (true)
                     {
-                        if (count == int.Parse(this.questionnum.Text))
+
+                        if (count == qn)
                             break;
 
-                        build.BuildExp(modemode,int.Parse(this.textBox1.Text));//选择模式
+                        build.BuildExp(modemode, mn);//选择模式和数字范围，生成算式
 
-                        if (selectpow<2)
+                        if (selectpow < 2)
                             build.PrintExp1();
                         else if (selectpow == 2)
                             build.PrintExp2();
-                        
+
 
                         build.TurnToHou();
 
@@ -114,7 +124,7 @@ namespace CalculatorGame
                     createquestion = 0;
                 }
 
-
+           
                 if (IsFirstBuild)
                 {
                     label1.Visible = true;//这是题目
@@ -125,12 +135,24 @@ namespace CalculatorGame
                     timerText.Visible = true;
                     history.Visible = true;
                     groupBox1.Visible = false;
+              //      button4.Visible = false;
                     scoreText.Text = "得分：" + score.ToString();
                     hp.Text = "剩余次数" + chance.ToString();
                     timer1.Start();
                 }
                 ansText.Focus();
-                label1.Text = StrList[onequestion];
+                if (onequestion >= qn)
+                {
+                    history_Click(null, null);
+                    //MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
+                    //System.Environment.Exit(0);
+                    //Application.Exit();
+                }
+                else
+                {
+                    label1.Text = StrList[onequestion];
+                }
+               
 
 
 
@@ -157,7 +179,7 @@ namespace CalculatorGame
             if (ansflag == 1)
             {
                 timer1.Stop();
-                MessageBox.Show("Accepted!\n");
+                MessageBox.Show("回答正确\n");
                 timer1.Start();
                 score++;
                 scoreText.Text = "得分：" + score.ToString();
@@ -168,7 +190,7 @@ namespace CalculatorGame
             else if (ansflag == 0)
             {
                 timer1.Stop();
-                MessageBox.Show("WrongAnswer\n"+ "Correct Answer:" + correctAnswerStr);
+                MessageBox.Show("回答错误\n"+ "正确答案是：" + correctAnswerStr);
                 timer1.Start();
                 chance=chance-1;
                 if (chance <= 0)
@@ -184,7 +206,7 @@ namespace CalculatorGame
             else
             {
                 timer1.Stop();
-                MessageBox.Show("输入格式有误！");
+                MessageBox.Show("请输入正确的答案格式");
                 timer1.Start();
                 this.ansText.Text = "";
                 this.ansText.Focus();
@@ -192,14 +214,18 @@ namespace CalculatorGame
 
             record.Text += StrList[onequestion] +"="+ correctAnswerStr + "\r\n";
             onequestion++;//题目加1
-
+            //if (onequestion >= qn)
+            //{
+            //    MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
+            //    Application.Exit();
+            //}
             button1_Click(null, null);
         }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
             timerText.Text = "倒计时："+(totalTime--).ToString();
-            //Thread.Sleep(3000);
+
             if(totalTime==-1)
             {
                 timer1.Stop();
@@ -208,6 +234,12 @@ namespace CalculatorGame
                 chance -= 1;
                 hp.Text = "剩余次数" + chance.ToString();
                 onequestion++;
+                //if (onequestion >= qn)
+                //{
+                //    MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
+                //    //System.Environment.Exit(0);
+                //    Application.Exit();
+                //}
                 button1_Click(null, null);
                 totalTime = 20;
             }
@@ -216,9 +248,10 @@ namespace CalculatorGame
 
         private void history_Click(object sender, EventArgs e)
         {
+            
             re.Visible = true;
             record.Visible = true;
-            reto.Visible = true;
+            //reto.Visible = true;
             ansText.Visible = false;
             button2.Visible = false;
             timerText.Visible =false;
@@ -226,7 +259,19 @@ namespace CalculatorGame
             hp.Visible = false;
             history.Visible = false;
             label1.Visible = false;
+            //button4.Visible = false;
             timer1.Stop();
+            if (onequestion >= qn)
+            {
+                reto.Visible = false;
+                //history_Click(null, null);
+                MessageBox.Show("恭喜您完成您设置生成的所有题\n请按确定退出游戏");
+                //System.Environment.Exit(0);
+                Application.Exit();
+
+            }
+            else reto.Visible = true;
+
         }
 
         private void Question_Load(object sender, EventArgs e)
@@ -244,6 +289,7 @@ namespace CalculatorGame
             timerText.Visible = true;
             scoreText.Visible = true;
             hp.Visible = true;
+            //button4.Visible = false;
             history.Visible = true;
             label1.Visible = true;
             timer1.Start();
@@ -266,6 +312,7 @@ namespace CalculatorGame
             label1.Visible = false;
             button3.Visible = false;
             groupBox1.Visible = true;
+            //button4.Visible = false;
 
         }
 
@@ -301,6 +348,22 @@ namespace CalculatorGame
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           // panel3.Visible = true;
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
