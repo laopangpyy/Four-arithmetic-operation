@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CalculatorGame
 {
-    internal class MyNumber
+    public  class MyNumber
     {
         private int numerator;      //分子
         private int denominator;    //分母
@@ -23,14 +23,17 @@ namespace CalculatorGame
             this.denominator = denominator;
             this.value = (float)numerator / (float)denominator;
         }
+
         public int getnumerator()
         {
             return this.numerator;
         }
+
         public int getdenominator()
         {
             return this.denominator;
         }
+
         public float getvalue()
         {
             return this.value;
@@ -69,6 +72,7 @@ namespace CalculatorGame
             c.denominator = a.denominator * b.denominator;
             return c;
         }
+
         public static MyNumber operator -(MyNumber a, MyNumber b)
         {
             MyNumber c = new MyNumber
@@ -78,6 +82,7 @@ namespace CalculatorGame
             };
             return c;
         }
+
         public static MyNumber operator *(MyNumber a, MyNumber b)
         {
             MyNumber c = new MyNumber
@@ -87,6 +92,7 @@ namespace CalculatorGame
             };
             return c;
         }
+
         public static MyNumber operator /(MyNumber a, MyNumber b)
         {
             MyNumber c = new MyNumber
@@ -96,6 +102,7 @@ namespace CalculatorGame
             };
             return c;
         }
+
         public static MyNumber operator ^(MyNumber a, MyNumber b)
         {
             MyNumber c = new MyNumber(1);
@@ -103,6 +110,7 @@ namespace CalculatorGame
                 c = c * a;
             return c;
         }
+
         public static bool operator ==(MyNumber a, MyNumber b)
         {
             if (a.flag == 0)
@@ -134,6 +142,7 @@ namespace CalculatorGame
         {
             numerator = 0;
             denominator = 1;
+            value = 0;
             mySign = 1;
             flag = 0;
         }
@@ -142,6 +151,7 @@ namespace CalculatorGame
             numerator = x;
             denominator = 1;
             mySign = 1;
+            value = x;
             flag = 0;
         }
         public MyNumber(int x, int y, int sign)
@@ -149,42 +159,8 @@ namespace CalculatorGame
             numerator = x;
             denominator = y;
             mySign = sign;
+            value = (float)x / (float)y;
             flag = 0;
-        }
-
-        public void Print()
-        {
-            if (flag == 0)
-                Reduction();
-            if (mySign < 0)
-                Console.Write("-");
-            Console.Write("{0}", numerator / myGcd);
-            if (denominator / myGcd != 1)
-                Console.Write("/{0}", denominator / myGcd);
-            // cout << "/" << denominator / mygcd;
-            Console.Write("\n");
-            //cout << endl;
-        }
-        public void Print(String formula, FileStream fileStream)
-        {
-            if (flag == 0)
-                Reduction();
-            byte[] Byte0 = System.Text.Encoding.UTF8.GetBytes(formula + "=");
-            fileStream.Write(Byte0, 0, Byte0.Length);
-            if (mySign < 0)
-            {
-                byte[] Byte1 = System.Text.Encoding.UTF8.GetBytes("-");
-                fileStream.Write(Byte1, 0, Byte1.Length);
-            }
-            byte[] Byte2 = System.Text.Encoding.UTF8.GetBytes((numerator / myGcd).ToString());
-            fileStream.Write(Byte2, 0, Byte2.Length);
-            if (denominator / myGcd != 1)
-            {
-                byte[] Byte3 = System.Text.Encoding.UTF8.GetBytes("/" + (denominator / myGcd).ToString());
-                fileStream.Write(Byte3, 0, Byte3.Length);
-            }
-            byte[] Byte4 = System.Text.Encoding.UTF8.GetBytes("\r\n");
-            fileStream.Write(Byte4, 0, Byte4.Length);
         }
 
         public string M_ToString()
