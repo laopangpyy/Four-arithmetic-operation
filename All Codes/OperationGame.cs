@@ -19,7 +19,6 @@ namespace CalculatorGame
         Calculate calculate = new Calculate();
         public static Random rd = new Random();
         Build build = new Build();
-        private bool IsFirstBuild = true;
         int createquestion = 1;
         private int score = 0;
         int totalTime = 20;
@@ -40,21 +39,18 @@ namespace CalculatorGame
         private void button1_Click(object sender, EventArgs e)
         {
             
-
             bool a = int.TryParse(this.questionnum.Text, out qn);
             bool b = int.TryParse(this.textBox1.Text, out mn);
 
-
-
-
-            if (modemode == 0)
+            
+            if (a == false)
+                MessageBox.Show("请输入正确格式的题目个数");
+             else if (b == false)
+                MessageBox.Show("请输入正确格式的数字范围");
+            else if (modemode == 0)
                 MessageBox.Show("请选择是否进行乘方运算");
             else if (modemode == 3 && selectpow == 0)
                 MessageBox.Show("请选择乘方符号");
-            else if (a == false)
-                MessageBox.Show("请输入正确格式的题目个数");
-            else if (b == false)
-                MessageBox.Show("请输入正确格式的数字范围");
             else
             {
                
@@ -88,6 +84,8 @@ namespace CalculatorGame
 
                         /*对生成的树进行比较*/
                         tree.adjustTree(tree.getroot());
+                       
+
                         int result = 1;
                         for (int i = 0; i < TreeList.Count; i++)
                         {
@@ -125,8 +123,7 @@ namespace CalculatorGame
                 }
 
            
-                if (IsFirstBuild)
-                {
+             
                     label1.Visible = true;//这是题目
                     ansText.Visible = true;
                     button1.Visible = false;
@@ -138,7 +135,7 @@ namespace CalculatorGame
                     scoreText.Text = "得分：" + score.ToString();
                     hp.Text = "剩余次数" + chance.ToString();
                     timer1.Start();
-                }
+               
                 ansText.Focus();
                 if (onequestion >= qn)
                 {
@@ -250,7 +247,7 @@ namespace CalculatorGame
             
             re.Visible = true;
             record.Visible = true;
-            //reto.Visible = true;
+          
             ansText.Visible = false;
             button2.Visible = false;
             timerText.Visible =false;
@@ -258,7 +255,7 @@ namespace CalculatorGame
             hp.Visible = false;
             history.Visible = false;
             label1.Visible = false;
-            //button4.Visible = false;
+            
             timer1.Stop();
             if (onequestion >= qn)
             {
